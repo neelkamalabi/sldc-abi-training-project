@@ -32,7 +32,7 @@ def main():
     output_file = data_dir / "iris.csv"
     df.to_csv(output_file, index=False)
     
-    print(f"✓ Iris dataset downloaded successfully!")
+    print("✓ Iris dataset downloaded successfully!")
     print(f"✓ Saved to: {output_file}")
     print(f"✓ Shape: {df.shape}")
     print(f"✓ Features: {list(iris.feature_names)}")

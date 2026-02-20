@@ -2,7 +2,6 @@
 FastAPI application for Iris classification predictions.
 """
 from pathlib import Path
-from typing import List
 
 import joblib
 import numpy as np
@@ -50,12 +49,12 @@ class PredictionResponse(BaseModel):
 
 class BatchIrisFeatures(BaseModel):
     """Batch input for multiple predictions."""
-    samples: List[IrisFeatures]
+    samples: list[IrisFeatures]
 
 
 class BatchPredictionResponse(BaseModel):
     """Response model for batch predictions."""
-    predictions: List[PredictionResponse]
+    predictions: list[PredictionResponse]
 
 
 @app.on_event("startup")
@@ -186,7 +185,7 @@ async def predict_batch(batch: BatchIrisFeatures):
     
     # Prepare response
     results = []
-    for i, (pred, probs) in enumerate(zip(predictions, probabilities)):
+    for _i, (pred, probs) in enumerate(zip(predictions, probabilities, strict=True)):
         confidence = float(np.max(probs))
         prob_dict = {
             target_names[j]: float(probs[j])
