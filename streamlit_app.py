@@ -153,24 +153,6 @@ with col2:
     else:
         st.info("👈 Adjust the feature values and click **Predict Species** to see results")
 
-# Add example presets
-st.markdown("---")
-st.subheader("📚 Example Presets")
-
-col_ex1, col_ex2, col_ex3 = st.columns(3)
-
-with col_ex1:
-    if st.button("🌼 Setosa Example", use_container_width=True):
-        st.rerun()
-
-with col_ex2:
-    if st.button("🌺 Versicolor Example", use_container_width=True):
-        st.rerun()
-
-with col_ex3:
-    if st.button("🌻 Virginica Example", use_container_width=True):
-        st.rerun()
-
 # Information section
 with st.expander("ℹ️ About the Model"):
     st.markdown("""
